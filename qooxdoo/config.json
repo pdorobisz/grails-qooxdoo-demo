@@ -41,7 +41,10 @@
     "API_EXCLUDE"  : ["qx.test.*", "${APPLICATION}.theme.*", "${APPLICATION}.test.*", "${APPLICATION}.simulation.*"],
     "LOCALES"      : [ "en" ],
     "CACHE"        : "${TMPDIR}/qx${QOOXDOO_VERSION}/cache",
-    "ROOT"         : "."
+    "ROOT"         : ".",
+    "APP_URL"      : "/grails-qooxdoo-demo/qxapp",
+    "SDK_URL"      : "/grails-qooxdoo-demo/qxapp/sdk",
+    "BUILD_URL"    : "qx"
   },
 
   // You only need to edit the remainder of this file, if you want to customize
@@ -53,32 +56,48 @@
     // project; make sure to adapt the path to the Manifest.json; if you are
     // using a contrib: library, it will be downloaded into the path specified
     // by the 'cache/downloads' config key
-    /*
+
     "libraries" : 
     {
       "library" :
       [
         {
-          "manifest" : "contrib://SkeletonApplication/trunk/Manifest.json"
-        }
+		  // URL for application files in development version (all URLs will start with "${APP_URL}/source/")
+          "manifest" : "./Manifest.json",
+          "uri" : "${APP_URL}"
+        },
+		{
+		  // URL for SDK files used by development version
+		  "manifest" : "${QOOXDOO_PATH}/framework/Manifest.json",
+		  "uri" : "${SDK_URL}/framework"
+		}
       ]
     }
-    */
+
+    ,"source-script" : {
+      "compile-options" : {
+        "code": {
+		  // URL for javascript files in development version
+          "decode-uris-plug": "decode-uris-plug.js"
+        }
+      }
+    }
 
     // If you want to tweak a job setting, see the following sample where
     // the "format" feature of the "build-script" job is overridden.
     // To see a list of available jobs, invoke 'generate.py x'.
-	/*
+
     ,"build-script" :
     {
       "compile-options" : 
       {
-        "code" :
+        "uris" :
         {
-          "format" : false
+		  // URLs for all application files in deployment version
+          "script": "${BUILD_URL}/script",
+		  "resource": "${BUILD_URL}/resource"
         }
       }
     }
-    */
   }
 }
