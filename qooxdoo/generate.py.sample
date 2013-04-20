@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+#
+#
+# Set QOOXDOO_PATH and save this file as generate.py
+#
+
+import sys
+import os
+import subprocess
+
+QOOXDOO_PATH=""
+
+args = " ".join(sys.argv[1:])
+path = os.path.join(QOOXDOO_PATH, 'tool', 'bin', 'generator.py')
+cmd = "{0} -m QOOXDOO_PATH:{1} {2}".format(path, QOOXDOO_PATH, args)
+subprocess.call(cmd, shell=True)
