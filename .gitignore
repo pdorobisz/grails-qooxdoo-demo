@@ -5,3 +5,4 @@
 target
 
 grails-app/conf/User-config.groovy
+web-app/qx
