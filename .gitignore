@@ -3,3 +3,5 @@
 .project
 *.iml
 target
+
+grails-app/conf/User-config.groovy

@@ -1,0 +1,4 @@
+// User-specific configuration.
+// Set all properties and save this file as User-config.groovy.
+
+qooxdoo.sdk.path=""
