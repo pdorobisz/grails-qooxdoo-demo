@@ -1,0 +1,3 @@
+Before starting set configuration in following files:
+grails-app/conf/User-config.groovy.sample
+qooxdoo/generate.py.sample
